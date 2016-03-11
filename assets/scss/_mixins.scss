@@ -1,0 +1,180 @@
+/************************************************************************\
+  MCT – Management Construction Technology
+  ---------------------------------------------------------------------
+  MODULE:   mixins.scss
+  PURPOSE:  text styles 
+  @author:  dan moe
+
+  CODEMAP:
+  ---------------------------------------------------------------------
+  ^1 VENDOR PREFIXES
+  ^2 MEDIA QUERY BREAKPOINTS
+  ^3 TRANSITIONS
+  ^4 GET SPRITE SVG AND FALLBACK TO PNG
+  ^5 ABSOLUTE CENTRE
+
+/************************************************************************/
+
+
+// ^1 VENDOR PREFIXES
+//-----------------------------------------------------------------------/
+
+@mixin VP($name, $value) {
+  -webkit-#{$name}: #{$value};
+  -ms-#{$name}: #{$value};
+  -moz-#{$name}: #{$value};
+  -o-#{$name}: #{$value};
+  #{$name}: #{$value};
+}
+
+// ^2 MEDIA QUERY BREAKPOINTS
+//-----------------------------------------------------------------------/
+
+@mixin MQ($breakpoint, $inherit:true) {
+
+  // mobile first so default style are mobile portrait
+
+  // mobile landscape only
+  @if $breakpoint == 'xslandscape' {
+    @media (orientation:landscape) and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  // tablet portrait and up
+  @else if $breakpoint == 'small' and $inherit == true {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  // tablet portrait only (larger screens do not inherit)
+  @else if $breakpoint == 'small' and $inherit == false {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == 'height' {
+    @media screen and ( min-height: 300px ) and ( max-height : 1000px ) {
+      @content;
+    }
+  }
+
+  // tablet landscape / small desktops / laptops and up
+  @else if $breakpoint == 'medium' and $inherit == true {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  // tablet landscape only
+  @else if $breakpoint == 'mdlandscape' and $inherit == true {
+    @media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+      @content;
+    }
+  }
+
+  // tablet landscape / small desktops / laptops only
+  @else if $breakpoint == 'medium' and $inherit == false {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+
+  // large screens and up
+  @else if $breakpoint == 'large' and $inherit == true {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  // large screens only
+  @else if $breakpoint == 'large' and $inherit == false {
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  }
+
+  // extra large screens
+  @else if $breakpoint == 'xlarge' and $inherit == true {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+// ^3 TRANSITIONS
+//-----------------------------------------------------------------------/
+
+@mixin transition($prop:'all', $time:0.3s){
+  @include VP(transition, $prop $time ease);
+}
+
+// ^4 GET SPRITE SVG AND FALLBACK TO PNG
+//-----------------------------------------------------------------------/
+
+@mixin sprite($x:0, $y:0) {
+  background-image : url('../img/sprite.fw.png');
+  background-repeat : no-repeat;
+  background-position : $x $y;
+
+  html.svg & {
+    background-image : url('../img/sprite.fw.svg');
+  }
+}
+
+// ^5 SET FONT STYLE
+//-----------------------------------------------------------------------/
+
+@mixin walbaum($style:'book') {
+
+// font-family:'Walbaum W01 Roman';
+// font-family:'Walbaum W01 Italic';
+// font-family:'Walbaum W01 Bold';
+// font-family:'Walbaum W01 Bold Italic';
+
+  // font-family: 'Walbaum W01 Roman', arial, sans-serif;
+
+  @if $style == 'book' {
+    font-family: 'Walbaum W01 Roman';
+  }
+
+  @if $style == 'italic' {
+    font-family:'Walbaum W01 Italic';
+    font-style : italic;
+  }
+
+  @else if $style == 'bold' {
+    font-family:'Walbaum W01 Bold';
+  }
+
+}
+
+
+// ^5 ABSOLUTE CENTRE
+//-----------------------------------------------------------------------/
+
+@mixin centre($xy:xy) {
+  position: absolute;
+
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include VP(transform, translateX(-50%) translateY(-50%));
+  }
+
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include VP(transform, translateX(-50%));
+  }
+  
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include VP(transform, translateY(-50%));
+  }
+}

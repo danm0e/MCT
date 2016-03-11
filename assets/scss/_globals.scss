@@ -1,0 +1,251 @@
+/************************************************************************\
+  	MCT – Management Construction Technology
+	---------------------------------------------------------------------
+	MODULE:		globals.scss
+	PURPOSE:	global classes and variables
+  	@author:  	dan moe
+
+	CODEMAP:
+	---------------------------------------------------------------------
+	^1 VARIABLES
+	^2 REUSABLE STYLE RULES
+	^3 ANIMATION CLASSES
+
+/************************************************************************/
+
+// ^1 VARIABLES
+//-----------------------------------------------------------------------/
+
+// COLORS
+$brandRed : #BD1219;
+
+$darkGrey : #3C3C3B; // #191919 - 90% k
+$midGrey : #575756; // #333333 – 80% k
+$lightGrey : #706f6f; // #4C4C4C 70% k
+
+// ANIMATION TIME
+$duration : 0.5s;
+
+// ^2 REUSABLE STYLE RULES
+//-----------------------------------------------------------------------/
+
+body {
+	@include walbaum();
+}
+
+a {
+	text-decoration : none !important;
+	@include transition();
+	color : $lightGrey;
+
+	&:hover {
+		color : #FFF;
+	}
+}
+
+.slick-arrow {
+	display : block;
+	position : relative;
+
+	i {
+		display : block;
+		height : 75px;
+		width : 30px;
+		@include sprite(-155px, 0px);
+		@include centre(y);
+		right : 0;
+	}
+
+	&.prev i {
+		@include VP(transform, rotate(180deg));
+	}
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+.slick-prev {
+	display : none !important;
+}
+
+
+#main > .container > .next {
+	display : block;
+	position : absolute;
+	z-index : 100;
+	top : 140px;
+	right : 30px;
+	height : 75px;
+	width : 30px;
+
+	@include MQ('small'){
+		top : 260px;
+	}
+
+	@include MQ('medium'){
+		top : 190px;
+	}
+
+	@include MQ('large'){
+		top : 25%;
+	}
+
+	@include MQ('xlarge'){
+		top : 35%;
+	}
+
+}
+
+button {
+	outline: none;
+	@include transition();
+}
+
+.alert {
+	font-family : helvetica, arial, sans-serif;
+	font-size : 0.9em !important;
+	text-align : center;
+	line-height : 1em;
+	padding : 1em;
+	background : #000;
+	margin-bottom : 0 !important;
+
+	a {
+		color : $brandRed;
+		&:hover {
+			color : $lightGrey;
+		}
+	}
+}
+
+.container {
+	width : 100%;
+	// max-width : 1450px;
+	height : 100%;
+	float : left;
+}
+
+.img-responsive.full-width {
+	width : 100%;
+}
+
+.img {
+	background-position : center !important;
+	background-size : cover !important;
+	background-repeat : no-repeat !important;
+	// @include transition('background-size', 2s);
+}
+
+.select-wrap {
+	position : relative;
+	overflow: hidden;
+	background : $lightGrey;
+	padding : 0.75em;
+	margin-bottom: 1.5em;
+	@include VP(border-radius, 0.5em);
+	@include transition();
+	width : 85%;
+
+	@include MQ('small') {
+		width : 30%;
+		margin : 0 auto 1.5em;
+	}
+
+	span {
+		position : absolute;
+		color : #FFF;
+		font-size: 1.5em;
+		text-align: center;
+		width : 90%;
+		top : 0;
+		padding-top : 0.25em;
+
+		i {
+			font-style : normal;
+			font-size : 0.4em;
+		}
+	}
+
+	&:hover {
+		background : $darkGrey;
+	}
+
+	select {
+		width: 100%;
+		border: 0;
+		background: transparent;
+		-webkit-appearance: none;
+		opacity: 0;
+	}
+
+	option {
+		background : #FFF;	
+	}
+}
+
+.slick-arrow,
+.slick-slide {
+	outline : none !important;
+}
+
+
+a.home {
+	display : block;
+	height : 40px;
+	width : 40px;
+	position : absolute;
+	top : 1.5em;
+	right : 1em;
+	@include sprite(0px,-37px);
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+// ^3 ANIMATION CLASSES
+//-----------------------------------------------------------------------/
+
+.fadeIn {
+	opacity: 0;
+	@include VP(animation, fadeIn);
+	@include VP(animation-duration, $duration);
+	@include VP(animation-delay, $duration);
+	@include VP(animation-timing-function, ease-in);
+	@include VP(animation-fill-mode, forwards);
+}
+
+.bounceInRight {
+	@include VP(animation, bounceInRight);
+	@include VP(animation-duration, 1s);
+	@include VP(animation-delay, $duration);
+	@include VP(animation-timing-function, ease-in);
+	@include VP(animation-fill-mode, forwards);
+}
+
+.slideInRight {
+	opacity : 0;
+	@include VP(animation, slideInRight);
+	@include VP(animation-duration, $duration);
+	@include VP(animation-delay, $duration);
+	@include VP(animation-timing-function, ease-in);
+	@include VP(animation-fill-mode, forwards);
+}
+
+.slideInLeft {
+	opacity : 0;
+	@include VP(animation, slideInLeft);
+	@include VP(animation-duration, 1s);
+	@include VP(animation-delay, $duration);
+	@include VP(animation-timing-function, ease-in);
+	@include VP(animation-fill-mode, forwards);
+}
+
+.fadeInUpBig {
+	@include VP(animation, fadeInUpBig);
+}
+
+.reverse {
+	animation-direction: alternate-reverse;
+}

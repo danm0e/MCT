@@ -1,0 +1,541 @@
+/************************************************************************\
+	MCT – Management Construction Technology
+	---------------------------------------------------------------------
+	MODULE:		structure.scss
+	PURPOSE:	core structure (inc. structural text positioning)
+  	@author:  	dan moe
+
+	CODEMAP:
+	---------------------------------------------------------------------
+	^1	HOME PAGE, LOGO ANIMATION & INTRO POSITION
+	^2	FOLIO PAGES – HORIZONTAL HERO LAYOUT
+
+/************************************************************************/
+
+/** DO NO EDIT THE MAIN .CSS FILES DIRECTLY. THE SKY WILL FALL DOWN!!! **/
+
+html, body {
+	height : 100%;
+}
+
+body {
+	background : $darkGrey;
+
+	&.home {
+		overflow : hidden;
+	}
+
+	@include MQ('medium') {
+		&.page {
+			background : $midGrey;
+		}
+	}
+}
+
+main {
+	position : relative;
+}
+
+// ^1 HOME PAGE, LOGO ANIMATION & INTRO POSITION
+//-----------------------------------------------------------------------/
+
+.home main {
+	@include centre(y);
+	height : 200px;
+	width : 100%;
+	z-index : 2;
+
+	@include MQ('medium') {
+		height : 250px;
+	}
+
+	@include MQ('large') {
+		height : 300px;
+	}
+
+	@media screen and ( min-height: 300px ) and ( max-height : 1000px ) {
+		height : 200px !important;
+	}
+}
+
+.logo-wrap {
+	position : absolute;
+	z-index : 0;
+	top : 0;
+	left : 0; 
+	width : 100%;
+	height : 100%;
+	@include transition();
+
+	@include MQ('medium') {
+		.home &,
+		.page & {
+			// adjust y position for smaller desktops
+			@media screen and ( min-height: 300px ) and ( max-height : 1000px ) {
+				margin-top : -100px !important;
+			}
+		}
+	}
+
+	.home & {
+		// adjust y position for mobile
+		@media screen and ( max-width : 990px ) {
+			margin-top : -100px !important;
+		}
+	}
+
+	// call the intro animation
+	@include VP(animation, logoSize);
+	@include VP(animation-duration, $duration);
+	@include VP(animation-delay, $duration);
+	@include VP(animation-timing-function, ease-in);
+	@include VP(animation-fill-mode, forwards);
+
+	&:hover {
+		opacity: 0.6;
+	}
+
+	> div {
+		position : absolute;
+	}
+
+	.vert, .horz {
+		background : $brandRed;
+		z-index : 1;
+	}
+
+	.vert {
+		width : 2px;
+		left : 79px;
+
+		// call the intro animations
+		-webkit-animation-name : verticalTargetLine, moveVertToLogoPosition;
+		-webkit-animation-delay : 0s, $duration, $duration;
+		animation-name : verticalTargetLine, moveVertToLogoPosition;
+		animation-delay : 0s, $duration;
+		@include VP(animation-duration, $duration);
+		@include VP(animation-timing-function, ease-in);
+		@include VP(animation-fill-mode, forwards);
+
+	}
+
+	.horz {
+		height : 2px;
+		top : 20%;
+
+		// call the intro animation
+		-webkit-animation-name : horizontalTargetLine, moveHorzToLogoPosition;
+		-webkit-animation-delay : 0s, $duration, $duration;
+		animation-name : horizontalTargetLine, moveHorzToLogoPosition;
+		animation-delay : 0s, $duration;
+		@include VP(animation-duration, $duration);
+		@include VP(animation-timing-function, ease-in);
+		@include VP(animation-fill-mode, forwards);
+	}
+
+	.target {
+		height : 20px;
+		width : 20px;
+		border : 3px solid #FFF;
+		top : 19.36%;
+		left : 70px;
+		z-index: 0;
+		opacity: 0;
+
+		// call the intro animations
+		-webkit-animation-name : fadeIn, moveTargetToLogoPosition;
+		animation-name : fadeIn, moveTargetToLogoPosition;
+		@include VP(animation-delay, $duration);
+		@include VP(animation-duration, $duration);
+		@include VP(animation-timing-function, ease-in);
+		@include VP(animation-fill-mode, forwards);
+	}
+
+	.logo {
+		width : 155px;
+		height : 40px;
+		left : 100px;
+		top : 16.5%;
+		opacity: 0;
+		@include sprite();
+
+		-webkit-animation-name : fadeIn, moveLogoToLogoPosition;
+		animation-name : fadeIn, moveLogoToLogoPosition;
+		@include VP(animation-delay, $duration);
+		@include VP(animation-duration, $duration);
+		@include VP(animation-timing-function, ease-in);
+		@include VP(animation-fill-mode, forwards);
+	}
+
+	@include MQ('xslandscape') {
+		margin-left : -30px;
+
+		.logo {
+			margin-top : 10px;
+		}
+	}
+}
+
+.folio--project,
+.project-image {
+	height : 250px;
+	float : left;
+	outline : none;
+	overflow : hidden;
+	font-size : 4em;
+	color : #FFF;
+	position : relative;
+
+	@include MQ('large') {
+		height : 300px;
+	}
+
+	// adjust height for smaller desktops
+	@media screen and ( min-height: 300px ) and ( max-height : 1000px ) {
+		height : 200px !important;
+	}
+
+	> div {
+		@include centre();
+		width : 100%;
+		height : 100%;
+	}
+
+	.overlay {
+		z-index : 1;
+		background-color : $darkGrey;
+		opacity: 0;
+		@include transition();
+	}
+
+	&:hover {
+		.overlay {
+			opacity: 0.8;
+		}
+	}
+}
+
+.project-image + h3 {
+	display : block;
+	clear : both;
+	padding : 2em;
+	color : #FFF;
+	text-align : center;
+	font-style : italic;
+	font-weight : 100;
+	opacity: 0.2;
+
+	.section-marker {
+		display : block;
+		margin : auto;
+		height : 40px;
+		width : 50px;
+		@include sprite;
+
+		&.m {
+			// background-position: 0 0;
+		}
+
+		&.c {
+			background-position: -52px 0;
+		}
+
+		&.t {
+			background-position: -103px 0;
+		}
+
+	}
+}
+
+
+
+.folio--project {
+	opacity: 0;
+	width : 20%; //265px;
+}
+
+.header-wrap {
+	width : 200px;
+	height : 150px;
+	float : right;
+
+	@include MQ('small', false) {
+		.img {
+			height : 150px;
+			top : 75px;
+		}	
+	}
+
+	@include MQ('medium') {
+		width : 100%;
+		height : 265px;
+		@include centre();
+		z-index : 2;
+	}
+}
+
+.project-image {
+	width : 100%;
+}
+
+.contact {
+	position : absolute;
+	width : 250px;
+	left : 50px;
+	bottom : -200px;
+	@include transition();
+
+	// adjust y position for smaller desktops
+	@media screen and ( min-height: 300px ) and ( max-height : 1000px ) {
+		bottom : -150px;
+	}
+
+	> div {
+
+		&.contact--address:after {
+			content : '';
+			display : block;
+			width : 50px;
+			height : 2px;
+			margin : 2.5em 0;
+			background : $lightGrey;
+		}
+	}
+
+	a {
+		display : block;
+	}
+}
+
+.slidenav {
+	position : absolute;
+	width : 250px;
+	// height : 39px;
+	bottom : -125px;
+	right : 50px;
+
+	a {
+		display : block;
+		width : 39px;
+		height : 39px;
+		@include sprite(-36px,-37px);
+
+		&:hover {
+			opacity: 0.5;
+		}
+
+		&:first-of-type {
+			@include VP(transform, rotate(180deg));
+			float : left;
+		}
+
+		&:last-of-type {
+			float : right;
+		}
+	}
+}
+
+.home .slick-prev {
+	display : none !important;
+}
+
+// ^2 FOLIO PAGES – HORIZONTAL HERO LAYOUT
+//-----------------------------------------------------------------------/
+
+.sidebar {
+	position : relative;
+	height : 150px;
+	background : $darkGrey;
+
+	@include MQ('medium') {
+		height : 100%;
+		width : 350px;
+		float : left;
+		position : fixed;
+		z-index: 100;
+	}
+}
+
+.page main {
+	width : 100%;
+	float : left;
+	background : $midGrey;
+	padding : 1.5em;
+
+	@include MQ('medium') { 
+		padding : 5em 5em 5em 400px;
+	}
+
+	.container {
+		padding : 0;
+	}
+
+	.content {
+		padding : 3em 1.5em 1.5em;
+
+		@include MQ('medium') {
+			padding : 4em;
+		}
+	}
+
+	.heading {
+		padding : 1.5em;
+
+		@include MQ('large') {
+			padding : 4em;
+		}
+	}
+
+	footer {
+		clear : both;
+		padding-top : 2em;
+
+		a {
+			display : block;
+			padding : 0.5em 1em;
+			text-align: center;
+			margin : auto;
+
+			i {
+				display : block;
+				height : 20px;
+				width : 50px;
+				margin : 0.5em auto 0;
+				@include sprite(-70px,-48px);
+			}
+		}
+	}
+}
+
+body > footer {
+	clear : both;
+	padding : 2em;
+
+	.contact {
+		position : static;
+	}
+}
+
+.table-layout {
+	display : table;
+	height : 100%;
+	@include MQ('small', false) { width : 100%; }
+	@include MQ('large') { 
+		width : 100%; 
+		padding-left : 1em;
+		padding-right : 1em;
+	}
+
+	> .row {
+		margin-bottom: 1em;
+		padding : 0;
+
+		> div:first-of-type {
+			padding-bottom : 1em;
+		}
+	}
+
+	.table-cell {
+		position : relative;
+
+		@include MQ('small', false) { 
+			display : table-cell;
+			height: 100%;
+			float : none;
+		}
+
+		@include MQ('large') { 
+			display : table-cell;
+			height: 100%;
+			float : none;
+		}
+
+		.top {
+			display : table;
+			width : 100%;
+			min-height : 150px;
+
+			a, p {
+				display : table-cell;
+				vertical-align: middle;
+			}
+
+			p {
+				@include MQ('small') {
+					padding : 0 2em;
+				}
+				@include MQ('medium') {
+					padding : 2em;
+				}
+				@include MQ('large') {
+					padding : 3em;
+				}
+			}
+		}
+
+		> img + img {
+			margin-top : 2em;
+		}
+
+		.bottom {
+			min-height : 300px;
+			@include MQ('small', false) { min-height: auto; }
+			@include MQ('large') { min-height: auto; }
+		}
+
+		@include MQ('small', false) { 
+			.top, .bottom {
+				height : 50%;
+			}
+		}
+		@include MQ('large') { 
+			.top, .bottom {
+				height : 50%;
+			}
+		}
+
+		.full-height {
+			// min-height : 100% !important;
+			height : 100% !important;
+		}
+	}
+
+	> .row .table-cell {
+		border : 1px solid red;
+
+		p {
+			// @include centre('y');
+			display : table-cell;
+			vertical-align: middle;
+		}
+	}
+}
+
+.space-above {
+	margin-top : 1em;
+}
+
+nav {
+	@include MQ('medium') {
+		margin : -3em 0 2em;
+	}
+
+	ul {
+		padding : 0;
+		text-align : center;
+		
+		li {
+			list-style : none;
+			display : inline-block;
+			
+			a {
+				display: block;
+				padding : 0.5em;
+
+				@include MQ('xlarge') {
+					padding : 0.5em 1em;
+				}
+			}
+		}
+	}
+}

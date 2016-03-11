@@ -1,0 +1,21 @@
+/************************************************************************\
+	MCT – Management Construction Technology
+	---------------------------------------------------------------------
+	MODULE:		main.css
+	PURPOSE:	main styles for site
+  	@author:  	dan moe
+	---------------------------------------------------------------------
+	DO NO EDIT THE MAIN CSS FILE DIRECTLY. THE SKY WILL FALL DOWN !!!
+/************************************************************************/
+
+
+// IMPORTS
+@import 'bootstrap';
+@import 'font-awesome';
+@import 'slick';
+// @import 'slick-theme';
+@import 'mixins';
+@import 'globals';
+@import 'animations';
+@import 'structure';
+@import 'typography';

@@ -1,0 +1,99 @@
+/************************************************************************\
+	MCT – Management Construction Technology
+	---------------------------------------------------------------------
+	MODULE:		typography.scss
+	PURPOSE:	text styles 
+  	@author:  	dan moe
+
+	CODEMAP:
+	---------------------------------------------------------------------
+	^1 GLOBAL TEXT STYLES
+
+	---------------------------------------------------------------------
+
+/************************************************************************/
+
+// ^1 GLOBAL TEXT STYLES
+//-----------------------------------------------------------------------/
+
+.contact {
+	color : $lightGrey;
+	letter-spacing : 0.12em;
+	font-size : 0.9em;
+}
+
+h1 {
+	@include walbaum('italic');
+	line-height : 0.8em;
+	font-size : 2.5em;
+	text-align : right;
+	color : $darkGrey;
+	// padding-right : 70px;
+	margin : 0;
+
+	span {
+		font-size : 1.5em;
+		display : block;
+	}
+
+	@include MQ('small') {
+		font-size : 3em;
+	}
+
+	@include MQ('large') {
+		font-size : 4em;
+	}
+
+	@include MQ('xxlarge') {
+		font-size : 5em;
+	}
+
+	.horz-layout & {
+		@include MQ('large', false) {
+			font-size : 4em;
+			margin : 0 -1em;
+		}
+
+		@include MQ('xlarge') {
+			margin : 0;
+		}
+	}
+}
+
+p {
+	font-size : 1em;
+	color : #FFF;
+	line-height : 1.8em;
+
+	&:first-of-type {
+		font-size : 1.25em;
+		margin-bottom : 2em;
+	}
+
+	.top & {
+		padding : 2em 3em 2em 0;
+	}
+}
+
+nav li a {
+	@include walbaum('italic');
+	color : $darkGrey;
+	font-size : 1.5em;
+
+	@include MQ('medium', false) {
+		font-size : 1.2em;
+	}
+
+	@include MQ('xlarge') {
+		font-size : 1.8em;
+	}
+
+	&.active {
+		color : #FFF;
+	}
+}
+
+main footer a {
+	@include walbaum('italic');
+	color : $darkGrey;
+}

@@ -1,0 +1,393 @@
+/************************************************************************\
+  	MCT – Management Construction Technology
+	---------------------------------------------------------------------
+	MODULE:		globals.scss
+	PURPOSE:	global classes and variables
+  	@author:  	dan moe
+
+	CODEMAP:
+	---------------------------------------------------------------------
+	^1 COLOUR VARIABLES
+	^2 REUSABLE STYLE RULES
+
+/************************************************************************/
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes logoSize {
+	0% { 
+		width : 100%;
+		height : 100%;
+	}
+	100% { 
+		top: 25%; 
+		left : 50px;
+		width : 250px;
+		height : 100px;
+	}
+}
+
+@keyframes logoSize {
+	0% { 
+		width : 100%;
+		height : 100%;
+	}
+	100% { 
+		top: 25%; 
+		left : 50px;
+		width : 250px;
+		height : 100px;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes verticalTargetLine {
+	0% { 
+		height : 0%;
+	}
+	100% { 
+		height : 100%;
+	}
+}
+
+@keyframes verticalTargetLine {
+	0% { 
+		height : 0%;
+	}
+	100% { 
+		height : 100%;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes moveVertToLogoPosition {
+	100% { 
+		left : 29px; 
+	}
+}
+
+@keyframes moveVertToLogoPosition {
+	100% { 
+		left : 29px; 
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes horizontalTargetLine {
+	0% { 
+		width : 0%;
+	}
+	100% { 
+		width : 100%;
+	}
+}
+
+@keyframes horizontalTargetLine {
+	0% { 
+		width : 0%;
+	}
+	100% { 
+		width : 100%;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes moveHorzToLogoPosition {
+	100% { 
+		top : 50px; 
+	}
+}
+
+@keyframes moveHorzToLogoPosition {
+	100% { 
+		top : 50px; 
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes moveTargetToLogoPosition {
+	100% { 
+	    top: 41px;
+	    left: 20px;
+	}
+}
+
+@keyframes moveTargetToLogoPosition {
+	100% { 
+	    top: 41px;
+	    left: 20px;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes moveLogoToLogoPosition {
+	100% { 
+		left: 55px;
+		top: 5px;
+	}
+}
+
+@keyframes moveLogoToLogoPosition {
+	100% { 
+		left: 55px;
+		top: 5px;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes changeLineColour {
+	0% { 
+		background : $midGrey; 
+	}
+	100% { 
+		background : $brandRed; 
+	}
+}
+
+@keyframes changeLineColour {
+	0% { 
+		background : $midGrey; 
+	}
+	100% { 
+		background : $brandRed; 
+	}
+}
+
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes fadeIn {
+	0% { 
+		opacity: 0; 
+	}
+	100% { 
+		opacity: 1; 
+	}
+}
+
+@keyframes fadeIn {
+	0% { 
+		opacity: 0; 
+	}
+	100% { 
+		opacity: 1; 
+	}
+}
+
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes slideInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(1000px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(1000px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-500px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-500px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+
+@-webkit-keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(1000px * 2);
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: translateX(-10px * 3);
+	}
+
+	80% {
+		-webkit-transform: translateX(10px);
+	}
+
+	100% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(1000px * 2);
+	}
+
+	60% {
+		opacity: 1;
+		transform: translateX(-10px * 3);
+	}
+
+	80% {
+		transform: translateX(10px);
+	}
+
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+// ^1 COLOUR VARIABLES
+//-----------------------------------------------------------------------/
+
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 2000px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+  } 
+}
+
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 2000px, 0); 
+  }
+  100% {
+    opacity: 1;
+    transform: none; 
+  } 
+}
+
+
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0); 
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    -ms-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0); 
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig; 
+  -webkit-animation-delay : $duration;
+  animation-delay : $duration;
+}
+
+// .scene_element {
+//   -webkit-animation-duration: 0.25s;
+//   animation-duration: 0.25s;
+//   -webkit-transition-timing-function: ease-in;
+//   transition-timing-function: ease-in;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both; 
+// }
+
+// .m-scene .scene_element--fadeInUpBig {
+//   -webkit-animation-name: fadeInUpBig;
+//   animation-name: fadeInUpBig; 
+// }
+
+// .m-scene .scene_element--fadeInDownBig {
+//   -webkit-animation-name: fadeInDownBig;
+//   animation-name: fadeInDownBig; 
+// }
+
+// .m-scene .scene_element--fadeInRightBig {
+//   -webkit-animation-name: fadeInRightBig;
+//   animation-name: fadeInRightBig; 
+//   -webkit-animation-delay : $duration;
+//   animation-delay : $duration;
+// }
+
+// .m-scene.out .scene_element {
+//   -webkit-animation-direction: alternate-reverse;
+//   animation-direction: alternate-reverse; 
+// }
