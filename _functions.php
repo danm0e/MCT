@@ -42,7 +42,17 @@ define( 'INC_PATH', __DIR__ . '/inc/' );
 $inc = INC_PATH;
 
 // DEFINE THE HOME URL
-$home = '/';
+$root = $_SERVER["SERVER_NAME"];
+
+switch ($root) {
+	case 'localhost':
+		$home = '/MCT/';
+		break;
+	
+	default:
+		$home = '/';
+		break;
+}
 
 // GET THE CURRENT PAGE
 $classes = ( $currentPage == 'index' ) ? 'home' : 'page';
