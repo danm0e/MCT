@@ -118,6 +118,7 @@
   background-image : url('../img/sprite.fw.png');
   background-repeat : no-repeat;
   background-position : $x $y;
+  background-color: transparent;
 
   html.svg & {
     background-image : url('../img/sprite.fw.svg');

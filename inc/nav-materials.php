@@ -11,11 +11,11 @@ $m = getPageType('material');
 	    	<nav class="fadeIn">
 	    		<h2 class="sr-only">Materials</h2>
 				<div class="select-wrap visible-xs visible-sm">
-		          	<span>Materials <i>&#9660;</i></span>
+		          	<!-- <span>Materials <i>&#9660;</i></span> -->
 					<select class="select-nav">
-						<option value="" disabled>- Select -</option>
+						<!-- <option value="" disabled>- Select -</option> -->
 		    		<?php foreach ($m as $key => $page): ?>
-						<option value="<?= $page['url']; ?>"><?= $page['title']; ?></option>
+						<option value="<?= $page['url']; ?>" <?= ($currentPageURL == $page['url']) ? 'selected' : ''; ?>><?= $page['title']; ?></option>
 	    			<?php endforeach; ?>
 					</select>
 				</div>

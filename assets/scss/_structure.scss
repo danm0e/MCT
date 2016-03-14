@@ -311,14 +311,14 @@ main {
 	position : absolute;
 	width : 250px;
 	// height : 39px;
-	bottom : -125px;
+	bottom : -100px;
 	right : 50px;
 
 	a {
 		display : block;
-		width : 39px;
-		height : 39px;
-		@include sprite(-36px,-37px);
+		width: 20px;
+    	height: 34px;
+		@include sprite(-48px, -40px);
 
 		&:hover {
 			opacity: 0.5;
@@ -332,6 +332,16 @@ main {
 		&:last-of-type {
 			float : right;
 		}
+
+		@include MQ('small') {
+			@include sprite(-156px, 0px);
+			width : 30px;
+			height : 78px;
+		}
+	}
+
+	@include MQ('small') {
+		bottom : -150px;
 	}
 }
 
@@ -346,6 +356,14 @@ main {
 	position : relative;
 	height : 150px;
 	background : $darkGrey;
+
+	h1 {
+		font-size: 2.6em;
+		position: absolute;
+	    color: #a0a0a0;
+	    top: 65%;
+	    left: 20px;
+	}
 
 	@include MQ('medium') {
 		height : 100%;

@@ -41,11 +41,11 @@ h1 {
 	}
 
 	@include MQ('large') {
-		font-size : 4em;
+		font-size : 3em;
 	}
 
-	@include MQ('xxlarge') {
-		font-size : 5em;
+	@include MQ('xlarge') {
+		font-size : 4em;
 	}
 
 	.horz-layout & {

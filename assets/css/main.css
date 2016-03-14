@@ -8749,8 +8749,7 @@ a {
     color: #FFF; }
 
 .slick-arrow {
-  display: block;
-  position: relative; }
+  display: block; }
   .slick-arrow i {
     display: block;
     height: 75px;
@@ -8758,6 +8757,7 @@ a {
     background-image: url("../img/sprite.fw.png");
     background-repeat: no-repeat;
     background-position: -155px 0px;
+    background-color: transparent;
     position: absolute;
     top: 50%;
     bottom: auto;
@@ -8774,12 +8774,10 @@ a {
     -ms-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
-    transform: rotate(180deg); }
+    transform: rotate(180deg);
+    top: 0; }
   .slick-arrow:hover {
     opacity: 0.5; }
-
-.slick-prev {
-  display: none !important; }
 
 #main > .container > .next {
   display: block;
@@ -8801,6 +8799,66 @@ a {
   @media (min-width: 1400px) {
     #main > .container > .next {
       top: 35%; } }
+
+.section-slider > button.slick-arrow {
+  background-image: url("../img/sprite.fw.png");
+  background-repeat: no-repeat;
+  background-position: -46px -40px;
+  background-color: transparent;
+  height: 35px;
+  width: 24px;
+  position: absolute;
+  top: 10%;
+  border: none;
+  overflow: hidden;
+  text-indent: 100px;
+  z-index: 1000; }
+  html.svg .section-slider > button.slick-arrow {
+    background-image: url("../img/sprite.fw.svg"); }
+  @media (min-width: 768px) {
+    .section-slider > button.slick-arrow {
+      background-image: url("../img/sprite.fw.png");
+      background-repeat: no-repeat;
+      background-position: -155px 0px;
+      background-color: transparent;
+      position: absolute;
+      height: 75px;
+      width: 30px;
+      top: 260px; }
+      html.svg .section-slider > button.slick-arrow {
+        background-image: url("../img/sprite.fw.svg"); } }
+  @media (min-width: 992px) {
+    .section-slider > button.slick-arrow {
+      top: 190px; } }
+  @media (min-width: 1200px) {
+    .section-slider > button.slick-arrow {
+      top: 25%; } }
+  @media (min-width: 1400px) {
+    .section-slider > button.slick-arrow {
+      top: 35%; } }
+
+.section-slider > button.slick-arrow.slick-prev {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  left: 12px; }
+  @media (min-width: 768px) {
+    .section-slider > button.slick-arrow.slick-prev {
+      left: 15px; } }
+  @media (min-width: 992px) {
+    .section-slider > button.slick-arrow.slick-prev {
+      left: -38px; } }
+
+.section-slider > button.slick-arrow.slick-next {
+  right: 12px; }
+  @media (min-width: 768px) {
+    .section-slider > button.slick-arrow.slick-next {
+      right: 15px; } }
+  @media (min-width: 992px) {
+    .section-slider > button.slick-arrow.slick-next {
+      right: -38px; } }
 
 button {
   outline: none;
@@ -8874,8 +8932,9 @@ button {
     width: 100%;
     border: 0;
     background: transparent;
-    -webkit-appearance: none;
-    opacity: 0; }
+    color: white;
+    font-size: 1em;
+    outline: none; }
   .select-wrap option {
     background: #FFF; }
 
@@ -8892,7 +8951,8 @@ a.home {
   right: 1em;
   background-image: url("../img/sprite.fw.png");
   background-repeat: no-repeat;
-  background-position: 0px -37px; }
+  background-position: 0px -37px;
+  background-color: transparent; }
   html.svg a.home {
     background-image: url("../img/sprite.fw.svg"); }
   a.home:hover {
@@ -9394,6 +9454,7 @@ main {
     background-image: url("../img/sprite.fw.png");
     background-repeat: no-repeat;
     background-position: 0 0;
+    background-color: transparent;
     -webkit-animation-name: fadeIn, moveLogoToLogoPosition;
     animation-name: fadeIn, moveLogoToLogoPosition;
     -webkit-animation-delay: 0.5s;
@@ -9485,7 +9546,8 @@ main {
     width: 50px;
     background-image: url("../img/sprite.fw.png");
     background-repeat: no-repeat;
-    background-position: 0 0; }
+    background-position: 0 0;
+    background-color: transparent; }
     html.svg .project-image + h3 .section-marker {
       background-image: url("../img/sprite.fw.svg"); }
     .project-image + h3 .section-marker.c {
@@ -9550,15 +9612,16 @@ main {
 .slidenav {
   position: absolute;
   width: 250px;
-  bottom: -125px;
+  bottom: -100px;
   right: 50px; }
   .slidenav a {
     display: block;
-    width: 39px;
-    height: 39px;
+    width: 20px;
+    height: 34px;
     background-image: url("../img/sprite.fw.png");
     background-repeat: no-repeat;
-    background-position: -36px -37px; }
+    background-position: -48px -40px;
+    background-color: transparent; }
     html.svg .slidenav a {
       background-image: url("../img/sprite.fw.svg"); }
     .slidenav a:hover {
@@ -9572,6 +9635,19 @@ main {
       float: left; }
     .slidenav a:last-of-type {
       float: right; }
+    @media (min-width: 768px) {
+      .slidenav a {
+        background-image: url("../img/sprite.fw.png");
+        background-repeat: no-repeat;
+        background-position: -156px 0px;
+        background-color: transparent;
+        width: 30px;
+        height: 78px; }
+        html.svg .slidenav a {
+          background-image: url("../img/sprite.fw.svg"); } }
+  @media (min-width: 768px) {
+    .slidenav {
+      bottom: -150px; } }
 
 .home .slick-prev {
   display: none !important; }
@@ -9580,6 +9656,12 @@ main {
   position: relative;
   height: 150px;
   background: #3C3C3B; }
+  .sidebar h1 {
+    font-size: 2.6em;
+    position: absolute;
+    color: #a0a0a0;
+    top: 65%;
+    left: 20px; }
   @media (min-width: 992px) {
     .sidebar {
       height: 100%;
@@ -9623,7 +9705,8 @@ main {
         margin: 0.5em auto 0;
         background-image: url("../img/sprite.fw.png");
         background-repeat: no-repeat;
-        background-position: -70px -48px; }
+        background-position: -70px -48px;
+        background-color: transparent; }
         html.svg .page main footer a i {
           background-image: url("../img/sprite.fw.svg"); }
 
@@ -9754,6 +9837,9 @@ h1 {
     h1 {
       font-size: 3em; } }
   @media (min-width: 1200px) {
+    h1 {
+      font-size: 3em; } }
+  @media (min-width: 1400px) {
     h1 {
       font-size: 4em; } }
   @media (min-width: 1200px) and (max-width: 1399px) {

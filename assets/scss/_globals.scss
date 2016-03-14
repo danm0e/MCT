@@ -45,7 +45,6 @@ a {
 
 .slick-arrow {
 	display : block;
-	position : relative;
 
 	i {
 		display : block;
@@ -58,15 +57,12 @@ a {
 
 	&.prev i {
 		@include VP(transform, rotate(180deg));
+	    top: 0;
 	}
 
 	&:hover {
 		opacity: 0.5;
 	}
-}
-
-.slick-prev {
-	display : none !important;
 }
 
 
@@ -95,6 +91,57 @@ a {
 		top : 35%;
 	}
 
+}
+
+.section-slider > button.slick-arrow {
+	@include sprite(-46px, -40px);
+    height: 35px;
+    width: 24px;
+	position: absolute;
+	top: 10%;
+    border: none;
+    overflow: hidden;
+    text-indent: 100px;
+    z-index: 1000;
+
+    @include MQ('small'){
+		@include sprite(-155px, 0px);
+		position: absolute;
+		height : 75px;
+		width : 30px;
+		top : 260px;
+	}
+
+	@include MQ('medium'){
+		top : 190px;
+	}
+
+	@include MQ('large'){
+		top : 25%;
+	}
+
+	@include MQ('xlarge'){
+		top : 35%;
+	}
+}
+.section-slider > button.slick-arrow.slick-prev {
+	@include VP(transform, rotate(180deg));
+	left: 12px;
+	@include MQ('small'){
+		left: 15px;
+	}
+	@include MQ('medium'){
+		left: -38px;
+	}
+}
+.section-slider > button.slick-arrow.slick-next {
+	right: 12px;
+	@include MQ('small'){
+		right: 15px;
+	}
+	@include MQ('medium'){
+		right: -38px;
+	}
 }
 
 button {
@@ -175,8 +222,11 @@ button {
 		width: 100%;
 		border: 0;
 		background: transparent;
-		-webkit-appearance: none;
-		opacity: 0;
+		// -webkit-appearance: none;
+		// opacity: 0;
+		color: white;
+    	font-size: 1em;
+    	outline: none;
 	}
 
 	option {
