@@ -108,8 +108,8 @@ $(document).ready(function() {
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		nextArrow: '.next',
-		prevArrow: '.prev',
+		// nextArrow: '.next',
+		// prevArrow: '.prev',
 	})
 
 	// ^4 SELECT DROP DOWN NAV

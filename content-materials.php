@@ -9,7 +9,7 @@
 				<?php /*<h3 class="visible-md visible-lg"><span class="section-marker c"></span>Construction</h3>*/?>
 	    	</div>
 
-
+			<h1 class="hidden-sm">The art of <span><?= $pageTitle; ?></span></h1>
 		</div>
 
 	    <main id="main">
@@ -19,7 +19,8 @@
 			<section class="container clearfix fadeIn">
 
 			<a href="<?= $home; ?>" class="home"><span class="sr-only">Home</span></a>
-			<a href="" class="next"><i class="large-arrow"></i></a>
+
+			<!-- <a href="" class="next"><i class="large-arrow"></i></a> -->
 
 				<div class="section-slider">
 
