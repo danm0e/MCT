@@ -1,3 +1,11 @@
+<?php
+/**
+ * content.php
+ * repeatable code, loads the content for each of the sub pages
+ *
+ * @author dan moe
+ */
+?>
 		<div class="sidebar fadeIn">
 
 	    	<?php include "{$inc}logo.php"; ?>
@@ -6,41 +14,43 @@
 		    	<div class="project-image fadeIn hidden-xs">
 					<div class="img" style="background: url(<?= $pageImageGrey; ?>)"></div>
 		    	</div>
-				<!-- <h3 class="visible-md visible-lg"><span class="section-marker m"></span>Management</h3> -->
+
+				<?php
+				switch ( $pageType  ) {
+					case 'page':
+						$section = 'm';
+						break;
+
+					case 'material':
+					case 'projects':
+						$section = 'c';
+						break;
+
+					case 'technology':
+						$section = 't';
+						break;
+				}
+				?>
+
+				<h3 class="visible-md visible-lg"><span class="section-marker <?= $section; ?>"></span><?= $pageTitle; ?></h3>
 	    	</div>
 
-			<h1 class="hidden-sm">The art of <span><?= $pageTitle; ?></span></h1>
+			<?php /* <h1 class="hidden-sm">The art of <span><?= $pageTitle; ?></span></h1> */ ?>
 		</div>
 
 	    <main id="main">
 
-			<?php require "{$inc}nav-page.php"; ?>
+			<?php require "{$inc}nav.php"; ?>
 
 			<section class="container clearfix fadeIn">
 
 			<a href="<?= $home; ?>" class="home"><span class="sr-only">Home</span></a>
+
 			<!-- <a href="" class="next"><i class="large-arrow"></i></a> -->
 
 				<div class="section-slider">
 
-				<?php
-					// get the content for the current page
-
-					switch ($currentPage) {
-						case 'aboutus':
-							require 'page-content-about.php';
-							break;
-						case 'management':
-							require 'page-content-management.php';
-							break;
-						case 'construction':
-							require 'page-content-construction.php';
-							break;
-						case 'technology':
-							require 'page-content-technology.php';
-							break;
-					}
-				?>
+				<?php require $pageContent; ?>
 
 				</div>
 
@@ -53,6 +63,5 @@
 				<a href="<?= $nextPageURL; ?>">The art of <?= $nextPageTitle; ?><i></i></a>
 			</footer>
 			<?php endif; */?>
-
 
 	    </main>

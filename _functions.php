@@ -13,7 +13,7 @@
  * 	^5	FUNCTION – GET CURRENT PAGE TYPE
  *	^6	FUNCTION – GET DISTINCT PAGE TYPE LIST
  *	^7	FUNCTION – GET NEXT PAGE
- *		–	^7a	next page varibles
+ *		–	^7a	next page variables
  *
  *	@package MCT
  *	@since 1.0
@@ -30,6 +30,16 @@
 // GET THE CURRENT PAGE DETAILS
 $currentPageURL = basename( $_SERVER['PHP_SELF'] );
 $currentPage = substr( $currentPageURL, 0, -4 ); // slug minus '.php'
+
+// SET THE CURRENT PAGE TITLE (outside of loop)
+// if the current page has a dash in it
+if ( strpos( $currentPage, '-') ) {
+	// replace the dash with a space and return current page title with first character set to uppercase
+	$currentPageTitle = ucwords( str_replace( '-', ' ', $currentPage ) );
+} else {
+	// return current page title with first character set to uppercase
+	$currentPageTitle = ucwords( $currentPage );
+}
 
 //	DO NOT ALLOW DIRECT ACCESS TO _FUNCTIONS.PHP
 if ( $currentPageURL === '_functions.php' ) {
@@ -72,6 +82,7 @@ $pages = array(
 		array(
 			'title'		=>	'Marble', 
 			'url'		=>	'marble.php', 
+			'content'	=>	$inc . 'content-marble.php',
 			'image'		=>	'assets/img/homepage/marble.jpg',
 			'image-gr'	=>	'assets/img/homepage/marble-grey.jpg',
 			'pagetype'	=>	'material',
@@ -81,6 +92,7 @@ $pages = array(
 		array(
 			'title'		=>	'Glass', 
 			'url'		=>	'glass.php', 
+			'content'	=>	$inc . 'content-glass.php',
 			'image'		=>	'assets/img/homepage/glass.jpg',
 			'image-gr'	=>	'assets/img/homepage/glass-grey.jpg',
 			'pagetype'	=>	'material',
@@ -90,15 +102,17 @@ $pages = array(
 		array(
 			'title'		=>	'Interiors', 
 			'url'		=>	'interiors.php', 
+			'content'	=>	$inc . 'content-interiors.php',
 			'image'		=>	'assets/img/homepage/interiors.jpg',
 			'image-gr'	=>	'assets/img/homepage/interiors-grey.jpg',
 			'pagetype'	=>	'projects',
 		), 
 
-	'aboutus' =>
+	'about-us' =>
 		array(
 			'title'		=>	'About Us', 
-			'url'		=>	'aboutus.php', 
+			'url'		=>	'about-us.php', 
+			'content'	=>	$inc . 'content-about-us.php',
 			'image'		=>	'assets/img/homepage/about.jpg',
 			'image-gr'	=>	'assets/img/homepage/about-grey.jpg',
 			'pagetype'	=>	'page',
@@ -108,6 +122,7 @@ $pages = array(
 		array(
 			'title'		=>	'Exteriors', 
 			'url'		=>	'exteriors.php', 
+			'content'	=>	$inc . 'content-exteriors.php',
 			'image'		=>	'assets/img/homepage/exteriors.jpg',
 			'image-gr'	=>	'assets/img/homepage/exteriors-grey.jpg',
 			'pagetype'	=>	'projects',
@@ -117,6 +132,7 @@ $pages = array(
 		array(
 			'title'		=>	'Leather', 
 			'url'		=>	'leather.php', 
+			'content'	=>	$inc . 'content-leather.php',
 			'image'		=>	'assets/img/homepage/leather.jpg',
 			'image-gr'	=>	'assets/img/homepage/leather-grey.jpg',
 			'pagetype'	=>	'material',
@@ -126,6 +142,7 @@ $pages = array(
 		array(
 			'title'		=>	'Wood', 
 			'url'		=>	'wood.php', 
+			'content'	=>	$inc . 'content-wood.php',
 			'image'		=>	'assets/img/homepage/wood.jpg',
 			'image-gr'	=>	'assets/img/homepage/wood-grey.jpg',
 			'pagetype'	=>	'material',
@@ -135,6 +152,7 @@ $pages = array(
 		array(
 			'title'		=>	'Management', 
 			'url'		=>	'management.php', 
+			'content'	=>	$inc . 'content-management.php',
 			'image'		=>	'assets/img/homepage/management.jpg',
 			'image-gr'	=>	'assets/img/homepage/management-grey.jpg',
 			'pagetype'	=>	'page',
@@ -144,6 +162,7 @@ $pages = array(
 		array(
 			'title'		=>	'Bespoke', 
 			'url'		=>	'bespoke.php', 
+			'content'	=>	$inc . 'content-bespoke.php',
 			'image'		=>	'assets/img/homepage/bespoke.jpg',
 			'image-gr'	=>	'assets/img/homepage/bespoke-grey.jpg',
 			'pagetype'	=>	'projects',
@@ -153,6 +172,7 @@ $pages = array(
 		array(
 			'title'		=>	'Furniture', 
 			'url'		=>	'furniture.php', 
+			'content'	=>	$inc . 'content-furniture.php',
 			'image'		=>	'assets/img/homepage/furniture.jpg',
 			'image-gr'	=>	'assets/img/homepage/furniture-grey.jpg',
 			'pagetype'	=>	'projects',
@@ -162,6 +182,7 @@ $pages = array(
 		array(
 			'title'		=>	'Lighting', 
 			'url'		=>	'lighting.php', 
+			'content'	=>	$inc . 'content-lighting.php',
 			'image'		=>	'assets/img/homepage/lighting.jpg',
 			'image-gr'	=>	'assets/img/homepage/lighting-grey.jpg',
 			'pagetype'	=>	'technology',
@@ -171,6 +192,7 @@ $pages = array(
 		array(
 			'title'		=>	'Construction', 
 			'url'		=>	'construction.php', 
+			'content'	=>	$inc . 'content-construction.php',
 			'image'		=>	'assets/img/homepage/construction.jpg',
 			'image-gr'	=>	'assets/img/homepage/construction-grey.jpg',
 			'pagetype'	=>	'page',
@@ -180,6 +202,7 @@ $pages = array(
 		array(
 			'title'		=>	'Metal', 
 			'url'		=>	'metal.php', 
+			'content'	=>	$inc . 'content-metal.php',
 			'image'		=>	'assets/img/homepage/metal.jpg',
 			'image-gr'	=>	'assets/img/homepage/metal-grey.jpg',
 			'pagetype'	=>	'material',
@@ -189,6 +212,7 @@ $pages = array(
 		array(
 			'title'		=>	'Fabric', 
 			'url'		=>	'fabric.php', 
+			'content'	=>	$inc . 'content-fabric.php',
 			'image'		=>	'assets/img/homepage/fabric.jpg',
 			'image-gr'	=>	'assets/img/homepage/fabric-grey.jpg',
 			'pagetype'	=>	'material',
@@ -198,6 +222,7 @@ $pages = array(
 		array(
 			'title'		=>	'AV', 
 			'url'		=>	'av.php', 
+			'content'	=>	$inc . 'content-av.php',
 			'image'		=>	'assets/img/homepage/av.jpg',
 			'image-gr'	=>	'assets/img/homepage/av-grey.jpg',
 			'pagetype'	=>	'technology',
@@ -207,15 +232,17 @@ $pages = array(
 		array(
 			'title'		=>	'Technology', 
 			'url'		=>	'technology.php', 
+			'content'	=>	$inc . 'content-technology.php',
 			'image'		=>	'assets/img/homepage/technology.jpg',
 			'image-gr'	=>	'assets/img/homepage/technology-grey.jpg',
 			'pagetype'	=>	'page',
 		), 
 
-	'homeauto' =>
+	'home-auto' =>
 		array(
 			'title'		=>	'Home Auto', 
-			'url'		=>	'homeauto.php', 
+			'url'		=>	'home-auto.php', 
+			'content'	=>	$inc . 'content-home-auto.php',
 			'image'		=>	'assets/img/homepage/homeauto.jpg',
 			'image-gr'	=>	'assets/img/homepage/homeauto-grey.jpg',
 			'pagetype'	=>	'technology',
@@ -225,6 +252,7 @@ $pages = array(
 		array(
 			'title'		=>	'Decoration', 
 			'url'		=>	'decoration.php', 
+			'content'	=>	$inc . 'content-decoration.php',
 			'image'		=>	'assets/img/homepage/decoration.jpg',
 			'image-gr'	=>	'assets/img/homepage/decoration-grey.jpg',
 			'pagetype'	=>	'material',
@@ -236,9 +264,10 @@ $pages = array(
 // GET CURRENT PAGE TITLE, URL AND IMAGE. CONDITIONAL SO DOESNT ERROR ON HOMEPAGE
 $pageTitle = ( $currentPage == 'index' ) ? 'home' : $pages[$currentPage]['title'];
 $pageURL = ( $currentPage == 'index' ) ? '/' : $pages[$currentPage]['url'];
+$pageContent = ( $currentPage == 'index' ) ? '' : $pages[$currentPage]['content'];
 $pageImage = ( $currentPage == 'index' ) ? null : $pages[$currentPage]['image'];
 $pageImageGrey = ( $currentPage == 'index' ) ? null : $pages[$currentPage]['image-gr'];
-
+$pageType = ( $currentPage == 'index' ) ? '' : $pages[$currentPage]['pagetype'];
 
 /********************************************************************\
 	^3	FUNCTION – FILTER
@@ -282,7 +311,7 @@ function filter( $term, $array ) {
  *	@return array $pagetype
  */
 
-function getPageType( $type ) {
+function getPageByType( $type ) {
 
 	// get the pages array
 	global $pages;
@@ -382,6 +411,7 @@ function getNextPage( $current ) {
 
 	// allow access to the main array
 	global $pages;
+	// global $currentPage;
 
 	// get the page type of the current page
 	$pageType = getCurrentPageType($current);
@@ -389,12 +419,15 @@ function getNextPage( $current ) {
 	// get the pages that match the current page type
 	$filter = ( $current == 'index' ) ? null : filter( $pageType, $pages );
 
+
 	// loop through each sub array and return the title's
 	foreach ($filter as $filterKey => $filterValue) {
 		// strip out the spaces
-		$slug = str_replace( ' ', '', $filterValue['title'] );
+		// $slug = str_replace( ' ', '', $filterValue['title'] );
+		$slug = substr( $filterValue['url'], 0, -4 );
 		// force lowercase format
-		$results[] = strtolower($slug);
+		// $results[] = strtolower($slug);
+		$results[] = $slug;
 	}
 
 	// search through the results array for a key that matches
@@ -418,7 +451,7 @@ function getNextPage( $current ) {
 	}
 }
 
-// ^7a	next page varibles
+// ^7a	next page variables
 // CACHE THE NEXT PAGE DATA
 $nextPage = ( $currentPage == 'index' ) ? 'home' : getNextPage( $currentPage );
 $nextPageTitle = ( $currentPage == 'index' ) ? 'home' : $nextPage['title'];

@@ -1,19 +1,26 @@
 <?php
 /**
- * inc/nav-projects.php
- * repeatable code, loads the navigation for the 'projects' page types
+ * inc/nav.php
+ * repeatable code, loads the navigation dependant on the current page type
  *
  * @author dan moe
  */
 
-$p = getPageType('projects');
+// get the category of the current page
+$pageType = getCurrentPageType($currentPage);
+
+// get all pages of the same page type
+$p = getPageByType($pageType);
 ?>
 	    	<nav class="fadeIn">
-	    		<h2 class="sr-only">Materials</h2>
+	    		<h2 class="sr-only">The art of <?= $currentPageTitle; ?></h2>
 				<div class="select-wrap visible-xs visible-sm">
-		          	<!-- <span>Materials <i>&#9660;</i></span> -->
+		          	<span>
+			          	<?php if ( $currentPage != 'about-us' ) echo 'The art of '; ?>
+			          	<?= $currentPageTitle; ?> 
+			          	<i>&#9660;</i>
+		          	</span>
 					<select class="select-nav">
-						<!-- <option value="" disabled>- Select -</option> -->
 		    		<?php foreach ($p as $key => $page): ?>
 						<option value="<?= $page['url']; ?>" <?= ($currentPageURL == $page['url']) ? 'selected' : ''; ?>><?= $page['title']; ?></option>
 	    			<?php endforeach; ?>

@@ -100,14 +100,15 @@ $(document).ready(function() {
 	// ^3 SECTION SLIDER
 	/********************************************************************/
 
-	$('.next, .prev').click(function(e) {
-		e.preventDefault();
-	})
+	// $('.next, .prev').click(function(e) {
+	// 	e.preventDefault();
+	// })
 
 	$('.section-slider').slick({
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
+		infinite: false,
 		// nextArrow: '.next',
 		// prevArrow: '.prev',
 	})

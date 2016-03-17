@@ -472,11 +472,12 @@ body > footer {
 			display : table;
 			width : 100%;
 			min-height : 150px;
+			position : relative;
 
-			a, p {
-				display : table-cell;
-				vertical-align: middle;
-			}
+			// a, p {
+				// display : table-cell;
+				// vertical-align: middle;
+			//}
 
 			p {
 				@include MQ('small') {
@@ -485,8 +486,12 @@ body > footer {
 				@include MQ('medium') {
 					padding : 2em;
 				}
-				@include MQ('large') {
+				@include MQ('xlarge') {
 					padding : 3em;
+
+					// fix fo Firefox table-cell issue
+					position : absolute;
+					@include centre('y');
 				}
 			}
 		}
@@ -519,14 +524,22 @@ body > footer {
 	}
 
 	> .row .table-cell {
-		border : 1px solid red;
-
 		p {
 			// @include centre('y');
 			display : table-cell;
 			vertical-align: middle;
 		}
 	}
+
+	// dirty dirty hack for Firefox table-cell issue
+	@include MQ('large', false) { 
+		.hero.vert img{
+			@-moz-document url-prefix() {
+				margin-top : -56px;
+			}
+		}
+	}
+
 }
 
 .space-above {

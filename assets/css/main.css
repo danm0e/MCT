@@ -8750,6 +8750,8 @@ a {
 
 .slick-arrow {
   display: block; }
+  .slick-arrow.slick-disabled {
+    display: none !important; }
   .slick-arrow i {
     display: block;
     height: 75px;
@@ -8932,6 +8934,8 @@ button {
     width: 100%;
     border: 0;
     background: transparent;
+    -webkit-appearance: none;
+    opacity: 0;
     color: white;
     font-size: 1em;
     outline: none; }
@@ -9747,19 +9751,26 @@ body > footer {
     .table-layout .table-cell .top {
       display: table;
       width: 100%;
-      min-height: 150px; }
-      .table-layout .table-cell .top a, .table-layout .table-cell .top p {
-        display: table-cell;
-        vertical-align: middle; }
+      min-height: 150px;
+      position: relative; }
       @media (min-width: 768px) {
         .table-layout .table-cell .top p {
           padding: 0 2em; } }
       @media (min-width: 992px) {
         .table-layout .table-cell .top p {
           padding: 2em; } }
-      @media (min-width: 1200px) {
+      @media (min-width: 1400px) {
         .table-layout .table-cell .top p {
-          padding: 3em; } }
+          padding: 3em;
+          position: absolute;
+          position: absolute;
+          top: 50%;
+          bottom: auto;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); } }
     .table-layout .table-cell > img + img {
       margin-top: 2em; }
     .table-layout .table-cell .bottom {
@@ -9778,11 +9789,13 @@ body > footer {
         height: 50%; } }
     .table-layout .table-cell .full-height {
       height: 100% !important; }
-  .table-layout > .row .table-cell {
-    border: 1px solid red; }
-    .table-layout > .row .table-cell p {
-      display: table-cell;
-      vertical-align: middle; }
+  .table-layout > .row .table-cell p {
+    display: table-cell;
+    vertical-align: middle; }
+  @media (min-width: 1200px) and (max-width: 1399px) {
+    @-moz-document url-prefix() {
+      .table-layout .hero.vert img {
+        margin-top: -56px; } } }
 
 .space-above {
   margin-top: 1em; }

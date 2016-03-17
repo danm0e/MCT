@@ -7,5 +7,5 @@
  */
 
 require 'header.php';
-require 'content-projects.php';
+require 'content.php';
 require 'footer.php';

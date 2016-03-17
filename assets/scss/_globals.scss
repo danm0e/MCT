@@ -46,6 +46,10 @@ a {
 .slick-arrow {
 	display : block;
 
+	&.slick-disabled {
+		display : none !important;
+	}
+
 	i {
 		display : block;
 		height : 75px;
@@ -222,8 +226,8 @@ button {
 		width: 100%;
 		border: 0;
 		background: transparent;
-		// -webkit-appearance: none;
-		// opacity: 0;
+		-webkit-appearance: none;
+		opacity: 0;
 		color: white;
     	font-size: 1em;
     	outline: none;

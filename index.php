@@ -7,5 +7,5 @@
  */
 
 require 'header.php';
-require 'content-home.php';
+require $inc . 'content-home.php';
 require 'footer.php';
