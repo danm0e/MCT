@@ -108,7 +108,6 @@ $(document).ready(function() {
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		infinite: false,
 		// nextArrow: '.next',
 		// prevArrow: '.prev',
 	})

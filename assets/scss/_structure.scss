@@ -155,7 +155,7 @@ main {
 		width : 155px;
 		height : 40px;
 		left : 100px;
-		top : 16.5%;
+		top : 14.5%;
 		opacity: 0;
 		@include sprite();
 
@@ -309,10 +309,19 @@ main {
 
 .slidenav {
 	position : absolute;
-	width : 250px;
+	width : 75%;
 	// height : 39px;
 	bottom : -100px;
 	right : 50px;
+
+	@include MQ('xslandscape'){
+		width : 85%;
+		bottom : -60px;
+	}
+
+	@include MQ('small'){
+		width : 250px;
+	}
 
 	a {
 		display : block;
@@ -459,7 +468,7 @@ body > footer {
 		@include MQ('small', false) { 
 			display : table-cell;
 			height: 100%;
-			float : none;
+			// float : none;
 		}
 
 		@include MQ('large') { 

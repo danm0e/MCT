@@ -7,7 +7,7 @@
  */
 
 // get the category of the current page
-$pageType = getCurrentPageType($currentPage);
+// $pageType = getCurrentPageType($currentPage);
 
 // get all pages of the same page type
 $p = getPageByType($pageType);

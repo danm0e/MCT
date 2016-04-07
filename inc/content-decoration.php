@@ -44,6 +44,8 @@
 						</div>
 					</div>
 
+					<?php /*
+
 					<!-- SLIDE STYLE 4 -->
 					<div class="table-layout">
 						<div class="col-lg-5 table-cell">
@@ -57,3 +59,5 @@
 							<img src="http://www.placehold.it/680x870" alt="" class="img-responsive full-width">
 						</div>
 					</div>
+
+					*/ ?>

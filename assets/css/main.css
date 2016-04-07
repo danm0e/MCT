@@ -9453,7 +9453,7 @@ main {
     width: 155px;
     height: 40px;
     left: 100px;
-    top: 16.5%;
+    top: 14.5%;
     opacity: 0;
     background-image: url("../img/sprite.fw.png");
     background-repeat: no-repeat;
@@ -9615,9 +9615,16 @@ main {
 
 .slidenav {
   position: absolute;
-  width: 250px;
+  width: 75%;
   bottom: -100px;
   right: 50px; }
+  @media (orientation: landscape) and (max-width: 767px) {
+    .slidenav {
+      width: 85%;
+      bottom: -60px; } }
+  @media (min-width: 768px) {
+    .slidenav {
+      width: 250px; } }
   .slidenav a {
     display: block;
     width: 20px;
@@ -9741,8 +9748,7 @@ body > footer {
     @media (min-width: 768px) and (max-width: 991px) {
       .table-layout .table-cell {
         display: table-cell;
-        height: 100%;
-        float: none; } }
+        height: 100%; } }
     @media (min-width: 1200px) {
       .table-layout .table-cell {
         display: table-cell;

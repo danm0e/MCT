@@ -19,23 +19,29 @@
 				switch ( $pageType  ) {
 					case 'page':
 						$section = 'm';
+						$sectionTitle = "Management";
 						break;
 
 					case 'material':
 					case 'projects':
 						$section = 'c';
+						$sectionTitle = "Construction";
 						break;
 
 					case 'technology':
 						$section = 't';
+						$sectionTitle = "Technology";
 						break;
 				}
 				?>
 
-				<h3 class="visible-md visible-lg"><span class="section-marker <?= $section; ?>"></span><?= $pageTitle; ?></h3>
+				<?php 
+				/* <h3 class="visible-md visible-lg"><span class="section-marker <?= $section; ?>"></span> = <?= $sectionTitle; ?></h3> */ 
+			if ($currentPage != 'about-us'): ?>
+				<h3 class="visible-md visible-lg">The art of <?= $pageTitle; ?></h3>
+			<?php endif; ?>
 	    	</div>
-
-			<?php /* <h1 class="hidden-sm">The art of <span><?= $pageTitle; ?></span></h1> */ ?>
+	    	<?php /* <h1 class="hidden-xs hidden-sm">The art of <span><?= $pageTitle; ?></span></h1> */ ?>
 		</div>
 
 	    <main id="main">

@@ -25,7 +25,7 @@
 	    	<?php //include "{$inc}contact-details.php"; ?>
 	    	
 	    	<div class="slidenav">
-	    		<a href="" class="slidenav-prev hidden hidden-xs"></a>
+	    		<a href="" class="slidenav-prev"></a>
 	    		<a href="" class="slidenav-next"></a>
 	    	</div> 
 
