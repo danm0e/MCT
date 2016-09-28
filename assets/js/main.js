@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 	$('.folio').slick({
 
-		infinite: false,
+		// infinite: false,
 		slidesToShow: 5,
 		slidesToScroll: 5,
 		prevArrow: '.slidenav-prev',
